@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepByStep</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stepByStepApp.css">
+    <script>
+        window.MathJax = {
+            loader: { load: ['[tex]/cancel', '[tex]/color', '[tex]/html'] },
+            tex: { packages: { '[+]': ['cancel', 'color', 'html'] } },
+            startup: { typeset: false }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/stepByStep/sbs-core.js"></script>
+    <script src="../js/stepByStep/sbs-algebra.js"></script>
+    <script src="../js/stepByStep/sbs-derivate.js"></script>
+    <script src="../js/stepByStep/sbs-editor.js"></script>
+    <script src="../js/stepByStep/sbs-esponenziali.js"></script>
+    <script src="../js/stepByStep/sbs-random.js"></script>
+    <script src="../js/stepByStep/sbs-ui.js" defer></script>
+</head>
+
+<body>
+    <h1><a href="#" class="sbs-home-link">StepByStep</a></h1>
+
+    <!-- ===================== HOME ===================== -->
+    <section id="sbs-home">
+        <h3 class="blue">Scegli l'argomento</h3>
+        <p class="gray sbs-intro">Scrivi un esercizio (o fattene proporre uno a caso) e guardalo svolto passo
+            passo, come nelle schede.</p>
+        <div id="sbs-argomenti" class="sbs-argomenti"></div>
+    </section>
+
+    <!-- ===================== ARGOMENTO ===================== -->
+    <section id="sbs-argomento" hidden>
+        <a href="#" class="sbs-indietro">◃ Tutti gli argomenti</a>
+        <h3 id="sbs-titolo" class="green"></h3>
+        <p id="sbs-consegna" class="gray sbs-spiega"></p>
+
+        <div class="sbs-campo-testa">
+            <span class="sbs-lab">IL TUO ESERCIZIO</span>
+            <span class="sbs-campo-azioni">
+                <button type="button" id="sbs-casuale" class="sbs-link-btn">Esercizio casuale</button>
+                <button type="button" id="sbs-cancella" class="sbs-link-btn">Cancella</button>
+            </span>
+        </div>
+        <div id="sbs-editor" class="sbs-editor" tabindex="0" role="textbox" aria-label="Esercizio"></div>
+        <div id="sbs-errore" class="red sbs-errore"></div>
+
+        <div class="sbs-azioni">
+            <button type="button" id="sbs-btn-sol">Soluzione</button>
+            <button type="button" id="sbs-btn-svo">Svolgimento</button>
+        </div>
+
+        <div id="sbs-out-sol" class="hint gray sbs-out" hidden>
+            <b class="gray">Soluzione</b><br>
+            <div id="sbs-sol" class="sbs-sol"></div>
+        </div>
+        <div id="sbs-out-svo" class="hint gray sbs-out" hidden>
+            <b class="gray">Svolgimento</b><br>
+            <div id="sbs-slides" class="slide-container grayBorder"></div>
+            <div class="sbs-controlli">
+                <button type="button" id="sbs-prev">Indietro</button>
+                <button type="button" id="sbs-fs">⛶</button>
+                <button type="button" id="sbs-next">Avanti</button>
+            </div>
+            <div id="sbs-contatore" class="gray sbs-contatore"></div>
+        </div>
+
+        <div class="sbs-spazio-tastiera"></div>
+    </section>
+
+    <!-- ===================== TASTIERINO ===================== -->
+    <div id="sbs-tastiera" class="sbs-tastiera" hidden>
+        <div class="sbs-tastiera-testa">
+            <span class="gray">Tastierino</span>
+            <button type="button" id="sbs-chiudi-tastiera" class="sbs-chiudi" aria-label="Chiudi il tastierino">▾</button>
+        </div>
+        <div id="sbs-tasti" class="sbs-tasti"></div>
+    </div>
+</body>
+
+</html>

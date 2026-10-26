@@ -1,0 +1,278 @@
+/* Stili aggiuntivi della pagina StepByStep (app/index.html).
+   Si appoggia a style.css e ne riprende colori e misure:
+   rosso #DB4437, blu #4285F4, verde #0F9D58, giallo #F4B400, grigi chiari. */
+
+[hidden] { display: none !important; }
+
+h1 a.sbs-home-link { color: inherit; text-decoration: none; }
+
+/* ---------- home ---------- */
+.sbs-intro { margin: 0.6rem 0 1rem; line-height: 1.35rem; }
+
+.sbs-argomenti {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.sbs-arg {
+    display: grid;
+    gap: 0.25rem;
+    padding: 0.9rem 1rem;
+    border: 0.01rem solid lightgray;
+    border-left: 0.3rem solid #0F9D58;
+    color: black;
+    text-decoration: none;
+    box-shadow: 0.2rem 0.2rem 0.3rem #eee;
+}
+
+.sbs-arg:hover { border-color: #4285F4; border-left-color: #4285F4; }
+.sbs-arg-titolo { font-size: 1.2rem; font-weight: 700; color: #4285F4; }
+.sbs-arg-descr { font-size: 0.95rem; line-height: 1.3rem; }
+.sbs-arg-formula { overflow-x: auto; padding-top: 0.2rem; }
+
+/* ---------- argomento ---------- */
+.sbs-indietro {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    color: gray;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.sbs-spiega { margin: 0.4rem 0 0.9rem; font-size: 0.95rem; line-height: 1.3rem; }
+
+.sbs-campo-testa {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.sbs-lab { font-size: 0.8rem; letter-spacing: 0.06rem; color: gray; }
+.sbs-campo-azioni { display: flex; gap: 0.9rem; }
+
+.sbs-link-btn {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: none;
+    color: #4285F4;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.sbs-link-btn:hover { text-decoration: underline; }
+
+.sbs-editor {
+    min-height: 4.2rem;
+    padding: 0.7rem 0.8rem;
+    border: 0.12rem solid lightgray;
+    background: white;
+    color: black;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: text;
+    display: flex;
+    align-items: center;
+    font-size: 1.15rem;
+}
+
+.sbs-editor:focus { outline: none; border-color: #4285F4; box-shadow: 0 0 0 0.2rem #e3edfd; }
+.sbs-editor:not(:focus) .sbs-caret { visibility: hidden; }
+.sbs-caret { animation: sbs-blink 1s steps(1) infinite; }
+@keyframes sbs-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .sbs-caret { animation: none; } }
+
+.sbs-errore { min-height: 1.2rem; margin: 0.4rem 0; font-size: 0.95rem; line-height: 1.3rem; }
+
+.sbs-azioni {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.8rem;
+    margin: 0.2rem 0 1rem;
+}
+
+.sbs-azioni button {
+    margin: 0;
+    min-width: 8rem;
+    padding: 0.45rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.sbs-azioni button.sbs-attivo {
+    color: white;
+    background: #0F9D58;
+    border: 0.01rem solid #0F9D58;
+}
+
+.sbs-out { margin-bottom: 1.2rem; }
+.sbs-sol { margin-top: 0.3rem; }
+.sbs-black { color: black; }
+.sbs-slide { min-height: 6rem; }
+
+/* calcoli ausiliari: staccati dalla riga principale ("a capo") */
+.sbs-aux {
+    margin-top: 1.4rem;
+    padding-top: 0.6rem;
+    border-top: 0.01rem dashed lightgray;
+}
+
+.sbs-nota { margin-top: 0.6rem; line-height: 1.35rem; }
+
+.sbs-controlli {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 0.4rem;
+}
+
+.sbs-contatore { text-align: center; font-size: 0.85rem; margin-top: 0.3rem; }
+
+.sbs-esempi-box { margin-top: 0.6rem; }
+
+.sbs-esempi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.sbs-chip {
+    margin: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0.3rem 0.7rem;
+    background: white;
+    border: 0.01rem solid lightgray;
+    border-radius: 1.2rem;
+    box-shadow: none;
+    color: black;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.sbs-chip:hover { border-color: #4285F4; }
+
+/* ---------- tastierino ---------- */
+.sbs-tastiera {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    z-index: 200;
+    padding: 0.4rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    background: #f3f5f7;
+    border-top: 0.01rem solid lightgray;
+    box-shadow: 0 -0.3rem 0.8rem rgba(0, 0, 0, 0.08);
+}
+
+.sbs-tastiera-testa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.2rem 0.3rem;
+    font-size: 0.85rem;
+}
+
+.sbs-chiudi {
+    margin: 0;
+    padding: 0 0.6rem;
+    border: 0;
+    box-shadow: none;
+    background: none;
+    font-size: 1.3rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.sbs-tasti {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.3rem;
+}
+
+.sbs-k {
+    margin: 0;
+    width: 100%;
+    height: 2.7rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf0f8;
+    border: 0.01rem solid #c9d2dc;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.12rem 0 #c3ccd8;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.15rem;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.sbs-k:active { transform: translateY(0.1rem); box-shadow: none; }
+.sbs-k.num { background: white; font-family: system-ui, sans-serif; }
+.sbs-k.op { font-family: system-ui, sans-serif; font-size: 1.2rem; }
+.sbs-k.nav { background: #d9e0e8; font-family: system-ui, sans-serif; }
+.sbs-k.vuoto { visibility: hidden; }
+.sbs-k.wide2 { grid-column: span 2; }
+.sbs-k.wide5 { grid-column: span 5; }
+.sbs-k.vai {
+    background: #0F9D58;
+    border-color: #0F9D58;
+    box-shadow: 0 0.12rem 0 #0b7a44;
+    color: white;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+}
+.sbs-k sup { font-size: 0.65em; line-height: 0; vertical-align: 0.7em; }
+
+.k-box {
+    display: inline-block;
+    width: 0.6em;
+    height: 0.75em;
+    border: 0.08em dashed #8a96a6;
+    border-radius: 0.1em;
+    vertical-align: middle;
+}
+
+.k-frac { display: inline-flex; flex-direction: column; align-items: center; gap: 0.12em; }
+.k-bar { display: block; width: 1.1em; height: 0.08em; background: black; }
+
+.sbs-spazio-tastiera { height: 1rem; }
+body.sbs-con-tastiera .sbs-spazio-tastiera { height: 20rem; }
+
+/* ---------- metodo della parabola ---------- */
+.sbs-parabola {
+    position: relative;
+    width: 100%;
+    max-width: 330px;
+    margin: 0.6rem auto 0.4rem;
+}
+
+.sbs-parabola-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.sbs-par-lab {
+    position: absolute;
+    color: black;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+/* testo dentro le slide (es. "L'equazione è risolta per") */
+.sbs-testo-slide { margin-top: 0.8rem; text-align: left; }

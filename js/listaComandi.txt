@@ -1,0 +1,8 @@
+Per formattare il testo: 
+SHIFT + ALT + F
+
+Per far collassare il codice:
+CTRL + K, CTRL + 0
+
+Per espandere il codice:
+CTRL + K, CTRL + J
